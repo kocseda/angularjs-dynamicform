@@ -1,0 +1,25 @@
+<div class="container rounded bg-light p-5">
+    <div class="row searchFilter" style="margin-bottom: 2%;">
+        <div class="col-sm-8">
+            <input type="text" class="form-control col-sm-8" placeholder="Filter..." ng-model="filterText">
+        </div>
+        <div class="col-sm-4" ng-controller="CreateFormController">
+            <button type="button" class="btn btn-secondary col-sm-4" ng-click="open()">Create Form</button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <th ng-repeat="key in labels">
+                    <span class="text-uppercase">{{key}}</span>
+                    </span>
+                </th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in filterData = (data | filter: filterText )">
+                    <td class="text-underline cursor-pointer" ng-repeat="key in labels">{{item[key]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

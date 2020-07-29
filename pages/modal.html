@@ -1,0 +1,48 @@
+<div ng-controller="FormModalController">
+    <div class="modal-header">
+        <h3 class="modal-title">Header</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group row" style="margin-bottom: 4%;">
+            <div class="col-sm-6">
+                <input class="form-control" type="text" ng-model="formFormat.name" name=""
+                    placeholder="Enter form name">
+                <small ng-show="warning.formName === true;" class="form-text text-muted">Please enter the form
+                    name.</small>
+            </div>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" ng-model="formFormat.description" name=""
+                    placeholder="Enter form description">
+                <small ng-if="warning.description" class="form-text text-muted">Please enter a form description.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <ul class="list-group">
+                <li data-ng-repeat="field in formFormat.fields" style="margin-bottom: 4%;">
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="field.dataType" ng-options="item for item in dataTypes"
+                            ng-change="updateDataType(item)">
+                        </select>
+                    </div>
+                    <div class=" col-sm-4">
+                        <input class="form-control" type="text" ng-model="field.name" name=""
+                            placeholder="Enter field name">
+                        <small ng-if="warning.fields[$index]" class="form-text text-muted">Please enter the
+                            field's
+                            name.</small>
+                    </div>
+                    <div class="form-check col-sm-3">
+                        <input type="checkbox" class="form-check-input" ng-model="field.required" id="requiredCheck">
+                        <label class="form-check-label" for="requiredCheck">Required</label>
+                    </div>
+                    <button class="btn btn-danger" ng-click="removeField(field.id)" ng-if="field.id!=index">-</button>
+                    <button class="btn btn-danger" ng-click="addNewField()" ng-if="field.id===index">+</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="saveForm()">Save changes</button>
+        <button class="btn btn-warning" type="button" ng-click="close()">Cancel</button>
+    </div>
+</div>

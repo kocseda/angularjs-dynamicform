@@ -1,0 +1,24 @@
+<div ng-controller="DynamicFormController">
+    <form ng-if="!notFound">
+        <div class="form-group" ng-repeat="field in data">
+            <label for="input">{{field.name}}</label>
+            <input type={{types[$index]}} class="form-control" id="input" placeholder={{field.name}}>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div ng-if="notFound" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="error-template">
+                    <h1>
+                        Oops!</h1>
+                    <h2>
+                        404 Not Found</h2>
+                    <div class="error-details">
+                        Sorry, an error has occured, Requested form not found!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

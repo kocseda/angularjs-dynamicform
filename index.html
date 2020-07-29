@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="formApp">
+
+<head>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+    <script src="script.js"></script>
+    <script src="scripts/create-form.js"></script>
+    <script src="scripts/dynamic-form.js"></script>
+    <script src="scripts/modal.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Dynamic Form Maker</a>
+            </div>
+        </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <ng-view></ng-view>
+    </main>
+</body>
+
+</html>
